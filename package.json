@@ -1,0 +1,44 @@
+{
+    "name": "usergram",
+    "version": "0.0.1",
+    "description": "Telegram userbot",
+    "main": "dist/index.ts",
+    "author": "MrMissx",
+    "license": "MIT",
+    "repository": {
+        "url": "https://github.com/userbotindo/UserGram.git"
+    },
+    "scripts": {
+        "genString": "node ./genString",
+        "build": "tsc",
+        "start": "node ./dist/index.js",
+        "dev": "ts-node ./src/index.ts",
+        "lint": "eslint . --ext .ts --fix",
+        "prepare": "husky install",
+        "test": "jest"
+    },
+    "dependencies": {
+        "@types/node": "^18.8.4",
+        "dotenv": "^16.0.3",
+        "input": "^1.0.1",
+        "telegram": "^2.12.8",
+        "typescript": "^4.8.4"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.19.3",
+        "@babel/preset-env": "^7.19.4",
+        "@babel/preset-typescript": "^7.18.6",
+        "@types/jest": "^29.1.2",
+        "@typescript-eslint/eslint-plugin": "^5.40.0",
+        "@typescript-eslint/parser": "^5.40.0",
+        "babel-jest": "^29.1.2",
+        "eslint": "^8.25.0",
+        "eslint-config-prettier": "^8.5.0",
+        "eslint-plugin-prettier": "^4.2.1",
+        "husky": "^8.0.1",
+        "jest": "^29.1.2",
+        "prettier": "^2.7.1",
+        "pretty-quick": "^3.1.3",
+        "ts-node": "^10.9.1"
+    }
+}
