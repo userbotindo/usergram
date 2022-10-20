@@ -66,7 +66,6 @@ export default class Context {
      * @returns The replied message or undefined
      */
     async getReply(): Promise<Api.Message | undefined> {
-        await this.message.edit({})
         return await this.message.getReplyMessage()
     }
 
