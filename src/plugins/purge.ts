@@ -35,12 +35,16 @@ export default class Purge extends Plugin {
             return await ctx.respond("Specify a number of messages to delete")
         }
         const timeStart = performance.now()
+        let deleted = 0
+        const toDelete = parseInt(ctx.args[0])
         for await (const message of ctx.client.iterMessages(ctx.chat, {
-            limit: parseInt(ctx.args[0]),
-            offsetId: ctx.message.id,
             fromUser: ctx.bot.self?.id,
         })) {
             await message.delete()
+            deleted++
+            if (deleted >= toDelete + 1) {
+                break
+            }
         }
         const timeEnd = performance.now()
         await ctx.respond(`Done purgeme in ${(timeEnd - timeStart).toFixed(2)}ms`, {
