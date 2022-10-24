@@ -64,7 +64,11 @@ export class CommandDispatcher {
             const cmdHandler = this.func.get(cmd)
             if (cmdHandler) {
                 const ctx = new Context(bot, client, event, parts[0].length)
-                cmdHandler.call(cmdHandler.func.bind(cmdHandler.plugin), ctx)
+                try {
+                    cmdHandler.call(cmdHandler.func.bind(cmdHandler.plugin), ctx)
+                } catch (e) {
+                    bot.log.error(`Error while executing command ${cmd}: ${e}`)
+                }
             }
         }
     }
