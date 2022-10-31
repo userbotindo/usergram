@@ -21,7 +21,7 @@
         "@types/node": "^18.11.4",
         "dotenv": "^16.0.3",
         "input": "^1.0.1",
-        "telegram": "^2.12.8",
+        "telegram": "^2.13.6",
         "typescript": "^4.8.4"
     },
     "devDependencies": {
