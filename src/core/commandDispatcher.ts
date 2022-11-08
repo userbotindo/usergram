@@ -15,8 +15,12 @@ class Command {
         public readonly func: CommandFunc
     ) {}
 
-    call(callback: CommandFunc, ctx: Context) {
-        callback(ctx)
+    async call(callback: CommandFunc, ctx: Context) {
+        try {
+            await callback(ctx)
+        } catch (err) {
+            ctx.bot.log.error(err as string)
+        }
     }
 }
 
