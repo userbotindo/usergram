@@ -8,7 +8,7 @@ import { truncate } from "../utils/message"
 
 /** Interface for responding messages */
 type RespondParams = {
-    /** Time to delete the message */
+    /** Time to delete the message in miliseconds */
     deleteAfter?: number
     /** Force reply even the context invoker is outgoing */
     reply?: boolean
