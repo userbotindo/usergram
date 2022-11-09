@@ -10,10 +10,10 @@ export default class Main extends Plugin {
 
     async cmd_info(ctx: Context) {
         await ctx.respond(`**Usergram info**:
-**Version**: ${process.env.npm_package_version}
+**UserGram Version**: ${process.env.npm_package_version}
 **Node.js version**: ${process.version}
-**Platform**: ${process.platform}
-**Arch**: ${process.arch}
+**GramJS version**: ${ctx.client.__version__}
+**Platform**: v${process.platform}
 **Memory usage**: ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB`)
     }
 }
