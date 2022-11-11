@@ -1,35 +1,15 @@
 import { Api } from "telegram"
 
-import Context from "../core/context"
-import Plugin from "../core/plugin"
+import { Context, Plugin } from "../core"
+import { parseTarget } from "../utils/telegram"
 
 export default class Restriction extends Plugin {
-    async parseTarget(ctx: Context): Promise<bigInt.BigInteger | undefined> {
-        let target: bigInt.BigInteger | undefined
-        if (ctx.replyTo) {
-            target = (await ctx.getReply())?.senderId
-        } else if (ctx.input) {
-            try {
-                target = BigInt(ctx.input) as unknown as bigInt.BigInteger
-            } catch (_) {
-                await ctx.respond("Invalid user ID")
-                return
-            }
-        }
-
-        if (!target) {
-            await ctx.respond("No user specified")
-            return
-        }
-        return target
-    }
-
     async cmd_promote(ctx: Context) {
         if (ctx.chat.className !== "Channel") {
             return await ctx.respond("This command only works in groups")
         }
 
-        const target = await this.parseTarget(ctx)
+        const target = await parseTarget(ctx)
         if (!target) {
             return
         }
@@ -64,7 +44,7 @@ export default class Restriction extends Plugin {
             return await ctx.respond("This command only works in groups")
         }
 
-        const target = await this.parseTarget(ctx)
+        const target = await parseTarget(ctx)
         if (!target) {
             return
         }

@@ -1,5 +1,4 @@
-import Plugin from "../core/plugin"
-import Context from "../core/context"
+import { Context, Plugin } from "../core"
 
 export default class Main extends Plugin {
     async cmd_ping(ctx: Context) {

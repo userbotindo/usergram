@@ -1,7 +1,6 @@
 import { performance } from "perf_hooks"
 
-import Plugin from "../core/plugin"
-import Context from "../core/context"
+import { Context, Plugin } from "../core"
 
 export default class Purge extends Plugin {
     async cmd_del(ctx: Context) {

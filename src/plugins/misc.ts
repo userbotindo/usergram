@@ -1,5 +1,4 @@
-import Plugin from "../core/plugin"
-import Context from "../core/context"
+import { Context, Plugin } from "../core"
 
 interface ResponseData {
     ok: boolean
